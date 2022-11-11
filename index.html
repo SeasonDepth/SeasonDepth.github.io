@@ -29,6 +29,19 @@
           "sourceOrganization" : "Shanghai Jiao Tong University, Carnegie Mellon University",
           "datePublished" : "2021-06-05"
             }
+const download = () => {
+    const x = new window.XMLHttpRequest();
+    x.open('GET', 'http://seasondepth-challenge.org/data/SeasonDepth_Challenge_test_depth_gt.zip', true);
+    x.responseType = 'blob';
+    x.onload = () => {
+        const url = window.URL.createObjectURL(x.response);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'SeasonDepth_Challenge_test_depth_gt.zip';
+        a.click();
+    };
+    x.send();
+}
     </script>
 
 
@@ -66,7 +79,7 @@
       </h2>
     <p>
       <li>
-        <i>Nov., 2022 </i>:  The depth ground truth for <a href="http://seasondepth-challenge.org/index">SeasonDepth Prediction Challenge</a> test set has been released <a href="http://seasondepth-challenge.org/data/SeasonDepth_Challenge_test_depth_gt.zip">here</a> to boost the research community using <a href="http://seasondepth-challenge.org/leaderboard.html">leaderboard</a>. We are hosting <a href="https://robodepth.github.io/">the RoboDepth (Robust Out-of-distribution Depth prediction) Challenge</a>  at ICRA 2023. Stay tuned!
+        <i>Nov., 2022 </i>:  The depth ground truth for <a href="http://seasondepth-challenge.org/index">SeasonDepth Prediction Challenge</a> test set has been released <a onclick="download">here</a> to boost the research community using <a href="http://seasondepth-challenge.org/leaderboard.html">leaderboard</a>. We are hosting <a href="https://robodepth.github.io/">the RoboDepth (Robust Out-of-distribution Depth prediction) Challenge</a>  at ICRA 2023. Stay tuned!
       </li>
       <li>
         <i>Jul., 2022 </i>:  The <a href="http://seasondepth-challenge.org/index">SeasonDepth Prediction Challenge</a> has been reopened for   <a href="https://iros2022.org/">IROS 2022</a> online Competition in October. Get ready to submit you results!
@@ -133,8 +146,9 @@
       Dataset Download
     </h3>
     <p>
-      We have released the test (validation) splits of SeasonDepth for zero-shot evaluation, including RGB images and depth maps under twelve different environments. The released dataset is placed  in long-term preserved <i>figshare</i> with persistent identifier Digital Object Identifier (DOI) of <i>10.6084/m9.figshare.14731323</i>.
-        The test (validation) set is available <a href="https://doi.org/10.6084/m9.figshare.14731323">HERE</a>. The training set of v1.1 has a DOI of <i>10.6084/m9.figshare.16442025</i> and is available <a href="https://doi.org/10.6084/m9.figshare.16442025"> HERE</a> together with the <a href="https://drive.google.com/file/d/12Xt_l26ZTCq2M2Oim1BfS2ltur6cX7H6/view?usp=sharing">fine-tuned models</a> on that, feel free to follow <a href="https://github.com/cogaplex-bts/bts">BTS</a> and <a href="https://github.com/ClementPinard/SfmLearner-Pytorch">SfMLearner</a> repos to fine-tune or evaluate them for benchmark. The detailed format and structure of test (validation) and training set can be found <a href="https://github.com/SeasonDepth/SeasonDepth/tree/master/dataset_info#seasondepth-test-and-training-set-for-benchmark">HERE</a>.
+      The test set of <a href="http://seasondepth-challenge.org/index">SeasonDepth Prediction Challenge</a> test set has been released with <a href="http://seasondepth-challenge.org/data/SeasonDepth_test_RGB.zip">RGB images</a>  and <a href="http://seasondepth-challenge.org/data/SeasonDepth_Challenge_test_depth_gt.zip">depth maps</a> for <a href="http://seasondepth-challenge.org/leaderboard.html">leaderboard</a>. Previously, 
+      we have released the validation splits of SeasonDepth for zero-shot evaluation, including RGB images and depth maps under twelve different environments. The released dataset is placed  in long-term preserved <i>figshare</i> with persistent identifier Digital Object Identifier (DOI) of <i>10.6084/m9.figshare.14731323</i>.
+        The validation set is available <a href="https://doi.org/10.6084/m9.figshare.14731323">HERE</a>. The training set of v1.1 has a DOI of <i>10.6084/m9.figshare.16442025</i> and is available <a href="https://doi.org/10.6084/m9.figshare.16442025"> HERE</a> together with the <a href="https://drive.google.com/file/d/12Xt_l26ZTCq2M2Oim1BfS2ltur6cX7H6/view?usp=sharing">fine-tuned models</a> on that, feel free to follow <a href="https://github.com/cogaplex-bts/bts">BTS</a> and <a href="https://github.com/ClementPinard/SfmLearner-Pytorch">SfMLearner</a> repos to fine-tune or evaluate them for benchmark. The detailed format and structure of validation and training set can be found <a href="https://github.com/SeasonDepth/SeasonDepth/tree/master/dataset_info#seasondepth-test-and-training-set-for-benchmark">HERE</a>.
     </p>
       
     <h3 >
@@ -160,8 +174,8 @@
           Baseline Evaluation Results
       </h3>
     <p>
-    Here we present the baseline performance of monocular depth estimation on the SeasonDepth dataset. Please refer to <a href="https://arxiv.org/abs/2011.04408">our paper</a> for more details. <br>
-      <img src="images/results.png" width="80%">
+    Here we present the baseline performance of monocular depth estimation on the SeasonDepth dataset over our validation set. Please refer to <a href="https://arxiv.org/abs/2011.04408">our paper</a> for more details. <br> The leadboard of the test set can be found <a href="http://seasondepth-challenge.org/leaderboard.html">here</a>.
+      <!-- <img src="images/results.png" width="80%"> -->
       <img src="images/vis_results.png" width="80%">
     </p>
 
